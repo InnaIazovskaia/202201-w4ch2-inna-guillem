@@ -1,7 +1,12 @@
 import "./App.css";
 import abecedario from "./data/abecedario";
+import Letra from "./components/Letra/Letra";
 
 function App() {
+  const letraEscogida = (abecedario) => {
+    abecedario.map((letra) => (letra.elegida = true));
+  };
+
   return (
     <>
       <div class="hangman-container">
@@ -38,7 +43,12 @@ function App() {
       <ul class="letters">
         {abecedario.map((letra) => {
           return (
-            <Letra id={letra.id} letra={letra.letra} elegida={letra.elegida} />
+            <Letra
+              key={letra.id}
+              letra={letra.letra}
+              state={letra.elegida}
+              actionOnClick={letraEscogida}
+            />
           );
         })}
         ;
