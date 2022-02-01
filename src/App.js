@@ -39,7 +39,7 @@ function App() {
     setListaLetras(
       listaLetras.map((letra) => {
         if (letra.id === letraId) {
-          return { ...listaLetras, elegida: !letra.elegida };
+          return { ...listaLetras, elegida: true };
         }
         return { ...listaLetras };
       })
@@ -88,7 +88,7 @@ function App() {
               key={letra.id}
               letra={letra.letra}
               state={letra.elegida}
-              actionOnClick={letraEscogida}
+              actionOnClick={() => letraEscogida()}
             />
           );
         })}

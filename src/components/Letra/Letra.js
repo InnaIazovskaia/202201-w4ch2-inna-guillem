@@ -1,7 +1,9 @@
-const Letra = ({ letra }) => {
+const Letra = ({ letra, actionOnClick }) => {
   return (
     <li className="letter">
-      <a href={letra}>{letra}</a>
+      <a href={letra} actionOnClick={actionOnClick}>
+        {letra}
+      </a>
     </li>
   );
 };
