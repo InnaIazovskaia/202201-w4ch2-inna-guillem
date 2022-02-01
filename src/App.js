@@ -38,13 +38,16 @@ function App() {
   const letraEscogida = (letraId) => {
     setListaLetras(
       listaLetras.map((letra) => {
-        if (letra.id === letraId) {
+        if (letra.elegida === letraId.elegida) {
           return { ...listaLetras, elegida: true };
         }
+        console.log("AQUI");
         return { ...listaLetras };
       })
     );
   };
+
+  const letraUsada = listaLetras.filter((letra) => letra.elegida);
 
   return (
     <>
@@ -75,17 +78,10 @@ function App() {
       <section className="used-letters-container">
         <h2>Used letters</h2>
         <ul className="used-letters">
-          {listaLetras.map((letra) => {
-            if (letra.elegida) {
-              return (
-                <Letra
-                  key={letra.id}
-                  letra={letra.letra}
-                  state={letra.elegida}
-                  actionOnClick={""}
-                />
-              );
-            }
+          {letraUsada.map((letra) => {
+            return (
+              <Letra key={letra.id} letra={letra.letra} state={letra.elegida} />
+            );
           })}
           ;
         </ul>
@@ -98,7 +94,7 @@ function App() {
               key={letra.id}
               letra={letra.letra}
               state={letra.elegida}
-              actionOnClick={() => letraEscogida()}
+              actionOnClick={letraEscogida}
             />
           );
         })}

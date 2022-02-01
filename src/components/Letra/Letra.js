@@ -1,7 +1,12 @@
 const Letra = ({ letra, actionOnClick }) => {
   return (
     <li className="letter">
-      <a href={letra} actionOnClick={actionOnClick}>
+      <a
+        href={letra}
+        onClick={() => {
+          actionOnClick(letra);
+        }}
+      >
         {letra}
       </a>
     </li>
