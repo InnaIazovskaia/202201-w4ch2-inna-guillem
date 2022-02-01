@@ -1,10 +1,41 @@
 import "./App.css";
-import abecedario from "./data/abecedario";
+import { useState } from "react";
 import Letra from "./components/Letra/Letra";
 
+const abecedario = [
+  { letra: "A", id: 1, elegida: false },
+  { letra: "B", id: 2, elegida: false },
+  { letra: "C", id: 3, elegida: false },
+  { letra: "D", id: 4, elegida: false },
+  { letra: "E", id: 5, elegida: false },
+  { letra: "F", id: 6, elegida: false },
+  { letra: "G", id: 7, elegida: false },
+  { letra: "H", id: 8, elegida: false },
+  { letra: "I", id: 9, elegida: false },
+  { letra: "J", id: 10, elegida: false },
+  { letra: "K", id: 11, elegida: false },
+  { letra: "L", id: 12, elegida: false },
+  { letra: "M", id: 13, elegida: false },
+  { letra: "N", id: 14, elegida: false },
+  { letra: "O", id: 15, elegida: false },
+  { letra: "P", id: 16, elegida: false },
+  { letra: "Q", id: 17, elegida: false },
+  { letra: "R", id: 18, elegida: false },
+  { letra: "S", id: 19, elegida: false },
+  { letra: "T", id: 20, elegida: false },
+  { letra: "U", id: 21, elegida: false },
+  { letra: "V", id: 22, elegida: false },
+  { letra: "W", id: 23, elegida: false },
+  { letra: "X", id: 24, elegida: false },
+  { letra: "Y", id: 25, elegida: false },
+  { letra: "Z", id: 26, elegida: false },
+];
+
 function App() {
-  const letraEscogida = (abecedario) => {
-    abecedario.map((letra) => (letra.elegida = true));
+  const [listaLetras, setListaLetras] = useState(abecedario);
+
+  const letraEscogida = (listaLetras) => {
+    setListaLetras(listaLetras.map((letra) => (letra.elegida = true)));
   };
 
   return (
@@ -41,7 +72,7 @@ function App() {
       </section>
       <section class="game-result">You're dead!</section>
       <ul class="letters">
-        {abecedario.map((letra) => {
+        {listaLetras.map((letra) => {
           return (
             <Letra
               key={letra.id}
