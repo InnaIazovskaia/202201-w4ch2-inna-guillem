@@ -1,7 +1,44 @@
 import "./App.css";
 import Palabra from "./components/Palabra/Palabra";
+import { useState } from "react";
+import Letra from "./components/Letra/Letra";
+
+const abecedario = [
+  { letra: "A", id: 1, elegida: false },
+  { letra: "B", id: 2, elegida: false },
+  { letra: "C", id: 3, elegida: false },
+  { letra: "D", id: 4, elegida: false },
+  { letra: "E", id: 5, elegida: false },
+  { letra: "F", id: 6, elegida: false },
+  { letra: "G", id: 7, elegida: false },
+  { letra: "H", id: 8, elegida: false },
+  { letra: "I", id: 9, elegida: false },
+  { letra: "J", id: 10, elegida: false },
+  { letra: "K", id: 11, elegida: false },
+  { letra: "L", id: 12, elegida: false },
+  { letra: "M", id: 13, elegida: false },
+  { letra: "N", id: 14, elegida: false },
+  { letra: "O", id: 15, elegida: false },
+  { letra: "P", id: 16, elegida: false },
+  { letra: "Q", id: 17, elegida: false },
+  { letra: "R", id: 18, elegida: false },
+  { letra: "S", id: 19, elegida: false },
+  { letra: "T", id: 20, elegida: false },
+  { letra: "U", id: 21, elegida: false },
+  { letra: "V", id: 22, elegida: false },
+  { letra: "W", id: 23, elegida: false },
+  { letra: "X", id: 24, elegida: false },
+  { letra: "Y", id: 25, elegida: false },
+  { letra: "Z", id: 26, elegida: false },
+];
 
 function App() {
+  const [listaLetras, setListaLetras] = useState(abecedario);
+
+  const letraEscogida = (listaLetras) => {
+    setListaLetras(listaLetras.map((letra) => (letra.elegida = true)));
+  };
+
   return (
     <>
       <div class="hangman-container">
@@ -32,87 +69,17 @@ function App() {
       </section>
       <section class="game-result">You're dead!</section>
       <ul class="letters">
-        <li class="letter">
-          <a href="a">A</a>
-        </li>
-        <li class="letter">
-          <a href="b">B</a>
-        </li>
-        <li class="letter">
-          <a href="c">C</a>
-        </li>
-        <li class="letter">
-          <a href="d">D</a>
-        </li>
-        <li class="letter">
-          <a href="e">E</a>
-        </li>
-        <li class="letter">
-          <a href="f">F</a>
-        </li>
-        <li class="letter">
-          <a href="g">G</a>
-        </li>
-        <li class="letter">
-          <a href="h">H</a>
-        </li>
-        <li class="letter">
-          <a href="i">I</a>
-        </li>
-        <li class="letter">
-          <a href="j">J</a>
-        </li>
-        <li class="letter">
-          <a href="k">K</a>
-        </li>
-        <li class="letter">
-          <a href="l">L</a>
-        </li>
-        <li class="letter">
-          <a href="m">M</a>
-        </li>
-        <li class="letter">
-          <a href="n">N</a>
-        </li>
-        <li class="letter">
-          <a href="ñ">Ñ</a>
-        </li>
-        <li class="letter">
-          <a href="o">O</a>
-        </li>
-        <li class="letter">
-          <a href="p">P</a>
-        </li>
-        <li class="letter">
-          <a href="q">Q</a>
-        </li>
-        <li class="letter">
-          <a href="r">R</a>
-        </li>
-        <li class="letter">
-          <a href="s">S</a>
-        </li>
-        <li class="letter">
-          <a href="t">T</a>
-        </li>
-        <li class="letter">
-          <a href="u">U</a>
-        </li>
-        <li class="letter">
-          <a href="v">V</a>
-        </li>
-        <li class="letter">
-          <a href="w">W</a>
-        </li>
-        <li class="letter">
-          <a href="x">X</a>
-        </li>
-        <li class="letter">
-          <a href="y">Y</a>
-        </li>
-        <li class="letter">
-          <a href="z">Z</a>
-        </li>
+        {listaLetras.map((letra) => {
+          return (
+            <Letra
+              key={letra.id}
+              letra={letra.letra}
+              state={letra.elegida}
+              actionOnClick={letraEscogida}
+            />
+          );
+        })}
+        ;
       </ul>
     </>
   );
