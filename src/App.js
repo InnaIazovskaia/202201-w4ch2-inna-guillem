@@ -34,7 +34,17 @@ const abecedario = [
 
 function App() {
   const [listaLetras, setListaLetras] = useState(abecedario);
-  const [letrasUsadas, setLetrasUsadas] = useState(abecedario);
+  const [letrasUsadas, setLetrasUsadas] = useState([]);
+  const fillLetrasUsadas = () => {
+    debugger;
+    const letraUsada = listaLetras.find((letra) => letra.elegida === true);
+    setLetrasUsadas(letrasUsadas.push(letraUsada));
+  };
+  function selectLetra() {
+    return setListaLetras(
+      listaLetras.map((letra) => ({ ...letra, elegida: true }))
+    );
+  }
 
   return (
     <>
@@ -71,7 +81,7 @@ function App() {
                 key={letra.id}
                 letra={letra.letra}
                 state={letra.elegida}
-                actionOnClick={""}
+                actionOnClick={fillLetrasUsadas}
               />
             );
           })}
@@ -82,7 +92,12 @@ function App() {
       <ul className="letters">
         {listaLetras.map((letra) => {
           return (
-            <Letra key={letra.id} letra={letra.letra} state={letra.elegida} />
+            <Letra
+              key={letra.id}
+              letra={letra.letra}
+              state={letra.elegida}
+              actionOnClick={selectLetra}
+            />
           );
         })}
         ;

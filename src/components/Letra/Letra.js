@@ -1,4 +1,4 @@
-const Letra = ({ letra, actionOnClick }) => {
+const Letra = ({ letra, actionOnClick, actionOnUsada }) => {
   return (
     <li className="letter">
       <a
