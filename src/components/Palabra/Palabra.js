@@ -1,4 +1,4 @@
-const Palabra = ({ palabra = "manzana" }) => {
+const Palabra = ({ palabra }) => {
   const letrasArray = Array.from(palabra);
   const letras = letrasArray.map((letra) => {
     return { letra: letra.toLocaleUpperCase(), oculta: true };
