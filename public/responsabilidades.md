@@ -1,21 +1,34 @@
-Elementos:
--Letra:
--Mostrar texto letra.
--Reaccionar al hacer click --> Borra la letra
+Estructura:
+Dato
+-acciones (quién define) (quién lanza)
+
+Array Letras:
+Decremento (Letra)(App)
+
+Array Letras usadas:
+Añadir (Letra)(App)
+
+Número de fallos:
+Incrementar (App)(Palabra)
+
+Estado del juego:
+modificación (App)(App)
+
+Array de palabras:
+
+Componentes:
 
 Dibujo:
 -Muestra partes del dibujo.
 
 Letras usadas:
--Mostrar Letra si no ha ido está en Palabra.
+-Mostrar Letra elegidas.
 
 Palabra:
--Tiene array de palabra (elementos Letra).
--Compara palabra recibida con array palabra. para decidir si muestra Letra
 -Muestra Letra correcta.
 
 Info:
--Muestra si ganado o perdido.
+-Muestra estado juego.
 
 Letra:
 -Muestra elementos Letra disponibles.
