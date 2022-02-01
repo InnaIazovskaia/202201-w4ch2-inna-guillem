@@ -35,8 +35,11 @@ const abecedario = [
 function App() {
   const [listaLetras, setListaLetras] = useState(abecedario);
 
-  const letraEscogida = (listaLetras) => {
-    setListaLetras(listaLetras.map((letra) => (letra.elegida = true)));
+  const letraEscogida = (letter) => {
+    const letraEliminada = listaLetras.filter(
+      (letra) => letra.letra !== letter.letra
+    );
+    setListaLetras(letraEliminada);
   };
 
   return (
