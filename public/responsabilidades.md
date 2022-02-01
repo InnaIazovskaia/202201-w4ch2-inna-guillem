@@ -17,6 +17,9 @@ Palabra:
 Info:
 -Muestra si ganado o perdido.
 
+Letra:
+-Muestra elementos Letra disponibles.
+
 APP:
 -Cambiar estado Letra "elegida".
 -Dispone de array de letras.
