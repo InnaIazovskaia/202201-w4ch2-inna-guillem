@@ -1,4 +1,5 @@
 import "./App.css";
+import Palabra from "./components/Palabra/Palabra";
 import { useState } from "react";
 import Letra from "./components/Letra/Letra";
 
@@ -56,11 +57,7 @@ function App() {
         </svg>
       </div>
       <ul class="guess-letters">
-        <li class="guess-letter empty"></li>
-        <li class="guess-letter">A</li>
-        <li class="guess-letter empty"></li>
-        <li class="guess-letter">A</li>
-        <li class="guess-letter empty"></li>
+        <Palabra></Palabra>
       </ul>
       <section class="used-letters-container">
         <h2>Used letters</h2>

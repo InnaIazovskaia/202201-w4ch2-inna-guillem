@@ -31,6 +31,7 @@ svg > * {
   justify-content: center;
   align-items: flex-end;
   font-size: 33px;
+  margin-left: 15px;
 }
 .guess-letter.empty {
   border-bottom: 2px solid #000;
