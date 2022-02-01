@@ -75,9 +75,19 @@ function App() {
       <section className="used-letters-container">
         <h2>Used letters</h2>
         <ul className="used-letters">
-          <li className="used-letter">B,&nbsp;</li>
-          <li className="used-letter">B,&nbsp;</li>
-          <li className="used-letter">B</li>
+          {listaLetras.map((letra) => {
+            if (letra.elegida) {
+              return (
+                <Letra
+                  key={letra.id}
+                  letra={letra.letra}
+                  state={letra.elegida}
+                  actionOnClick={""}
+                />
+              );
+            }
+          })}
+          ;
         </ul>
       </section>
       <section className="game-result">You're dead!</section>
