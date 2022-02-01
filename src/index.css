@@ -1,13 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Open Sans", sans-serif;
+}
+svg.hangman {
+  width: 18.75rem;
+  height: 18.75rem;
+}
+svg > * {
+  stroke: #6599aa;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  transition: 0.25s;
+}
+.container {
+  display: flex;
+}
+.guess-letters {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.guess-letter {
+  width: 30px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 33px;
+}
+.guess-letter.empty {
+  border-bottom: 2px solid #000;
+}
+.used-letters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.game-result {
+  font-size: 60px;
+}
+.letters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.letter a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 32px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
