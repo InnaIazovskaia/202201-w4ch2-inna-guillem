@@ -1,4 +1,5 @@
 import "./App.css";
+import abecedario from "./data/abecedario";
 
 function App() {
   return (
@@ -35,6 +36,21 @@ function App() {
       </section>
       <section class="game-result">You're dead!</section>
       <ul class="letters">
+        {}
+        {gentlemenInfo.map((gentleman) => {
+          return (
+            <Gentlemen
+              key={gentleman.id}
+              name={gentleman.name}
+              status={gentleman.status}
+              profession={gentleman.profession}
+              twitter={gentleman.twitter}
+              picture={gentleman.picture}
+              alternativeText={gentleman.alternativeText}
+            />
+          );
+        })}
+
         <li class="letter">
           <a href="a">A</a>
         </li>
