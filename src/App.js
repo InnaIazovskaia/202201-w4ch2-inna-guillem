@@ -35,17 +35,17 @@ const abecedario = [
 
 function App() {
   const [listaLetras, setListaLetras] = useState(abecedario);
-
-  const letraEscogida = (letraId) => {
-    setListaLetras(
-      listaLetras.map((letra) => {
-        if (letra.id === letraId) {
-          return { ...listaLetras, elegida: !letra.elegida };
-        }
-        return { ...listaLetras };
-      })
-    );
+  const [letrasUsadas, setLetrasUsadas] = useState([]);
+  const fillLetrasUsadas = () => {
+    debugger;
+    const letraUsada = listaLetras.find((letra) => letra.elegida === true);
+    setLetrasUsadas(letrasUsadas.push(letraUsada));
   };
+  function selectLetra() {
+    return setListaLetras(
+      listaLetras.map((letra) => ({ ...letra, elegida: true }))
+    );
+  }
 
   return (
     <>
@@ -56,9 +56,17 @@ function App() {
       <section className="used-letters-container">
         <h2>Used letters</h2>
         <ul className="used-letters">
-          <li className="used-letter">B,&nbsp;</li>
-          <li className="used-letter">B,&nbsp;</li>
-          <li className="used-letter">B</li>
+          {letrasUsadas.map((letra) => {
+            return (
+              <Letra
+                key={letra.id}
+                letra={letra.letra}
+                state={letra.elegida}
+                actionOnClick={fillLetrasUsadas}
+              />
+            );
+          })}
+          ;
         </ul>
       </section>
       <section className="game-result">You're dead!</section>
@@ -69,7 +77,7 @@ function App() {
               key={letra.id}
               letra={letra.letra}
               state={letra.elegida}
-              actionOnClick={letraEscogida}
+              actionOnClick={selectLetra}
             />
           );
         })}
